@@ -9,6 +9,10 @@ int _printf(const char *format, ...)
 	int counter = 0;
 
 	va_start(character, format);
+	
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+	
+		return (-1);
 
 	while (format[i] != '\0')
 	{
