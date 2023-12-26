@@ -9,12 +9,7 @@
 
 int _printchar(char c)
 {
-	if (write(1, &c, 1) < 0)
-	{
-		_printchar('E');
-		return (-1);
-	}
-
+	write(1, &c, 1);
 	return (1);
 }
 

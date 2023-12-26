@@ -3,62 +3,71 @@
 int _printf(const char *format, ...)
 {
 	int i = 0;
-	int o;
+	int ostring = 0;
+	int rrr = 0;
+	int sss = 0;
+	int ttt = 0;
+	int uuu = 0;
+
+
 	char *string_char;
 	va_list character;
-	int counter = 0;
 
 	va_start(character, format);
-	
+
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
-	
+
 		return (-1);
 
 	while (format[i] != '\0')
 	{
+
 	if (format[i] == '%')
 	{
 		i++;
 
 		if (format[i] == 'c')
-		{
-			_printchar(va_arg(character, int));
-		}
+			{
+			rrr = rrr + _printchar(va_arg(character, int));
+
+			}
 
 
 		else if (format[i] == 's')
-			{
-				o = 0;
 
-				string_char = va_arg(character, char *);
+			{
+			string_char = va_arg(character, char *);
+
 				if (string_char == NULL)
 				{
 					return (i);
 				}
-				counter = 0;
 
-				while (string_char[o] != '\0')
+				while (string_char[ostring] != '\0')
 				{
 
-					_printchar(string_char[o]);
-					o++;
-					counter++;
+				sss = sss + _printchar(string_char[ostring]);
+				ostring++;
 				}
-				i += counter - 1;
-
 			}
 
 		else if (format[i] == '%')
+
 			{
-				_printchar(format[i]);
+
+			uuu = uuu + _printchar(format[i]);
+
+			}
+		else
+			{
+
 			}
 	}
 
 		else
 
 		{
-			_printchar(format[i]);
-
+			ttt = ttt + _printchar(format[i]);
 		}
 
 		i++;
@@ -67,5 +76,5 @@ int _printf(const char *format, ...)
 
 	va_end(character);
 
-return (i);
+return (rrr + sss + ttt + uuu);
 }
