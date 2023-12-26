@@ -6,6 +6,7 @@ int _printf(const char *format, ...)
 	int o;
 	char *string_char;
 	va_list character;
+	int counter = 0;
 
 	va_start(character, format);
 
@@ -26,12 +27,17 @@ int _printf(const char *format, ...)
 				o = 0;
 
 				string_char = va_arg(character, char *);
+
+				counter = 0;
+
 				while (string_char[o] != '\0')
 				{
 
 					_printchar(string_char[o]);
 					o++;
+					counter++;
 				}
+				i += counter - 1;
 
 			}
 
@@ -39,7 +45,7 @@ int _printf(const char *format, ...)
 			{
 				_printchar(format[i]);
 			}
-		}
+	}
 
 		else
 
@@ -51,7 +57,7 @@ int _printf(const char *format, ...)
 		i++;
 
 	}
-	
+
 	va_end(character);
 
 return (i);
