@@ -40,7 +40,7 @@ int _printf(const char *format, ...)
 
 				if (string_char == NULL)
 				{
-					return (i);
+					string_char = "(null)";
 				}
 
 				while (string_char[ostring] != '\0')
