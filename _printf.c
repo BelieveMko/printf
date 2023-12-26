@@ -27,7 +27,10 @@ int _printf(const char *format, ...)
 				o = 0;
 
 				string_char = va_arg(character, char *);
-
+				if (string_char == NULL)
+				{
+					return (i);
+				}
 				counter = 0;
 
 				while (string_char[o] != '\0')
