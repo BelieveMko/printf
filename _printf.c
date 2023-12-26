@@ -22,7 +22,7 @@ int _printf(const char *format, ...)
 		}
 
 
-			if (format[i] == 's')
+		else if (format[i] == 's')
 			{
 				o = 0;
 
@@ -41,7 +41,7 @@ int _printf(const char *format, ...)
 
 			}
 
-			if (format[i] == '%')
+		else if (format[i] == '%')
 			{
 				_printchar(format[i]);
 			}
@@ -62,4 +62,3 @@ int _printf(const char *format, ...)
 
 return (i);
 }
-
